@@ -69,9 +69,16 @@ def Location(update: Update, context: CallbackContext):
             'chat_id':chat_id,
             'latitude':latitude,
             'longitude':longitude
-        }
+        } 
     bot.sendMessage(chat_id,location=param)
 
+def Nomer(update: Update, context: CallbackContext):
+    chat_id=update.message.chat.id
+    bot=context.bot
+
+    text='91 141 54 76'
+
+    bot.sendMessage(chat_id=chat_id,text=text)
 # def Buyurtma(update: Update, context: CallbackContext):
 #     chat_id=update.message.chat.id
 #     bot=context.bot

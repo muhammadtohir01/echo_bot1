@@ -3,7 +3,7 @@ import requests
 from telegram import Bot,Update
 from  telegram.ext import Dispatcher,CommandHandler,MessageHandler,Filters
 import os
-from echo import start,Lavash,CheeseBurger,GamBurger,XotDog,Buyurtma,Location
+from echo import start,Lavash,CheeseBurger,GamBurger,XotDog,Buyurtma,Location,Nomer
 
 
 app=Flask(__name__)
@@ -31,5 +31,6 @@ def webhook():
         dispatcher.add_handler(MessageHandler(Filters.text('Xot Dog'), XotDog))
         dispatcher.add_handler(MessageHandler(Filters.text('Buyurtma'),Buyurtma))
         dispatcher.add_handler(MessageHandler(Filters.text('Location'),Location))
+        dispatcher.add_handler(MessageHandler(Filters.text('Nomer'),Nomer))
         dispatcher.process_update(update)
     return "Assalomu alaykum"
