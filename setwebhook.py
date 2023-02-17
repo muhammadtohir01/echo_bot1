@@ -1,9 +1,14 @@
-from telegram import Update
-from telegram.ext import CallbackContext
+import requests
+import os
 
-def start(update:Update, context:CallbackContext):
-    update.message.reply_text("Assalomu alaykum botimizga hush kelibsiz")
+url = "https://muhammad01.pythonanywhere.com/ali"
 
-def echo(update:Update, context:CallbackContext):
-    text = update.message.text
-    update.message.reply_text(text)
+TOKEN = os.environ["TOKEN"]
+
+payload = {
+    "url" : url
+}
+
+r = requests.get(f"https://api.telegram.org/bot{TOKEN}/setWebhook", params=payload)
+
+print(r.json())
