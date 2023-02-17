@@ -10,7 +10,7 @@ from setwebhook import(
 )
 
 app=Flask(__name__)
-TOKEN=os.environ('TOKEN')
+TOKEN=os.environ['TOKEN']
 bot=Bot(TOKEN)
 
 
