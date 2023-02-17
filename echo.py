@@ -64,13 +64,7 @@ def Location(update: Update, context: CallbackContext):
     bot=context.bot
     latitude=39.661211
     longitude=67.010697
-
-    param={
-            'chat_id':chat_id,
-            'latitude':latitude,
-            'longitude':longitude
-        } 
-    bot.sendMessage(chat_id,location=param)
+    bot.sendMessage(chat_id,latitude=latitude,longitude=longitude)
 
 def Nomer(update: Update, context: CallbackContext):
     chat_id=update.message.chat.id
