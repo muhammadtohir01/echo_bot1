@@ -5,10 +5,6 @@ from  telegram.ext import Dispatcher,CommandHandler,MessageHandler,Filters
 import os
 from echo import start,Lavash,CheeseBurger,GamBurger,XotDog,Buyurtma,Location
 
-from bot_main import(
-    start,
-    echo,
-)
 
 app=Flask(__name__)
 TOKEN=os.environ['TOKEN']
@@ -27,24 +23,13 @@ def webhook():
 
         update:Update = Update.de_json(data, bot)
 
-        dispatcher.add_handler(CommandHandler('start',callback=start))
-        dispatcher.add_handler(MessageHandler(Filters.text,echo))
 
-        dispatcher.process_update(update)
-
-        # chat_id = update.message.chat_id
-        # text = update.message.text
-        # if text !=None:
-
-        #     bot.send_message(chat_id, text)
-        # print(chat_id)
         dispatcher.add_handler(CommandHandler('start',start))
         dispatcher.add_handler(MessageHandler(Filters.text('Lavash'),Lavash))
-        dispatcher.dispatcher.add_handler(MessageHandler(Filters.text('Cheese Burger'), CheeseBurger))
-        dispatcher.dispatcher.add_handler(MessageHandler(Filters.text('Gam Burger'), GamBurger))
-        dispatcher.dispatcher.add_handler(MessageHandler(Filters.text('Xot Dog'), XotDog))
-        dispatcher.dispatcher.add_handler(MessageHandler(Filters.text('Buyurtma'),Buyurtma))
-        dispatcher.dispatcher.add_handler(MessageHandler(Filters.text('Location'),Location))
-        dispatcher.start_polling()
-        dispatcher.idle()
+        dispatcher.add_handler(MessageHandler(Filters.text('Cheese Burger'), CheeseBurger))
+        dispatcher.add_handler(MessageHandler(Filters.text('Gam Burger'), GamBurger))
+        dispatcher.add_handler(MessageHandler(Filters.text('Xot Dog'), XotDog))
+        dispatcher.add_handler(MessageHandler(Filters.text('Buyurtma'),Buyurtma))
+        dispatcher.add_handler(MessageHandler(Filters.text('Location'),Location))
+        dispatcher.process_update(update)
     return "Assalomu alaykum"

@@ -76,14 +76,5 @@ def Location(update: Update, context: CallbackContext):
 #     chat_id=update.message.chat.id
 #     bot=context.bot
 
-updater = Updater(token=TOKEN)
 
-updater.dispatcher.add_handler(CommandHandler('start',start))
-updater.dispatcher.add_handler(MessageHandler(Filters.text('Lavash'),Lavash))
-updater.dispatcher.add_handler(MessageHandler(Filters.text('Cheese Burger'), CheeseBurger))
-updater.dispatcher.add_handler(MessageHandler(Filters.text('Gam Burger'), GamBurger))
-updater.dispatcher.add_handler(MessageHandler(Filters.text('Xot Dog'), XotDog))
-updater.dispatcher.add_handler(MessageHandler(Filters.text('Buyurtma'),Buyurtma))
-updater.dispatcher.add_handler(MessageHandler(Filters.text('Location'),Location))
-updater.start_polling()
-updater.idle()
+
